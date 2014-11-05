@@ -5,6 +5,10 @@ class Post {
 	Date dateCreated
 	Date lastUpdate
 	boolean itsAllowed
+	Regular owner
+	Forum belognsForum	
+	static belongsTo=[Regular,Forum]
+	static hasMany=[files:File]
 	
     static constraints = {
 		topic(blank:false,nullable:false,size:3..50)

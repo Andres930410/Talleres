@@ -4,6 +4,7 @@ class File {
 	String fileType
 	byte [] content
 	int size
+	static belongsTo=[Post]
     static constraints = {
 		fileType(blank:false,nullable:false,validator:{val->
 			if(val==~/[A-Za-z-0-9]+\/[A-Za-z-0-9]+/){
