@@ -7,6 +7,10 @@ class User {
 	String username
 	String password
 	
+	static mapping = {
+		tablePerHierarchy true
+	}
+	
     static constraints = {
 		name(size: 3..50,blank:false,nullable:false)
 		lastname(size: 3..50,blank:false,nullable:false)

@@ -17,4 +17,7 @@ class File {
 		content(blank:false,nullable:false)
 		size(blank:false,nullable:false,max:10*1024)
     }
+	static mapping = {
+		post column: "post_belongs_id"
+	}
 }

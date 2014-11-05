@@ -18,4 +18,13 @@ class Forum {
 		})
 		
     }
+	def beforeInsert() {
+		if (dateCreated == NULL_DATE) {
+		   dateCreated = new Date()
+		}
+	}
+	def beforeDelete() {
+		posts.removeAll(posts)
+	}
+	
 }

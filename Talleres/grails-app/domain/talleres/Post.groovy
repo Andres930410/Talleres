@@ -29,4 +29,22 @@ class Post {
 		})
 		itsAllowed(blank:false,nullable:false)
     }
+	static mapping = {
+		regular column: "owner_id"
+		forum column: "fatherForum_id"
+	}
+	
+	def beforeUpdate(){
+		lastUpdate = new Date();
+	}
+	
+	def beforeDelete() {
+		files.removeAll(files)
+	}
+	
+	def beforeInsert() {
+		if (dateCreated == NULL_DATE) {
+		   dateCreated = new Date()
+		}
+	}
 }
