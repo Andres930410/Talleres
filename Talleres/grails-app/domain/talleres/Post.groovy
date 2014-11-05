@@ -21,14 +21,32 @@ class Post {
 				return false
 		})
 		lastUpdate(blank:false,nullable:true,validator:{ val,obj ->
-			val?.after(obj.dateCreated)
+			def date = new Date()
+			if ( val.compareTo(date)<=0){
+				return true
+			}
+			else
+				return false
 		})
 		itsAllowed(blank:false,nullable:false)
     }
+
+	static mapping = {
+		regular column: "owner_id"
+		forum column: "fatherForum_id"
+	}
+	
+	def beforeUpdate(){
+		lastUpdate = new Date()
+	}
+	
+	def beforeDelete() {
+		files.removeAll(files)
+	}
+	
 	def beforeInsert() {
 		dateCreated = new Date()
-	}
-	def beforeUpdate(){
-		lastUpdate =new Date()
+		lastUpdate = new Date()
+	
 	}
 }

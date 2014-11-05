@@ -23,6 +23,10 @@ class Forum {
     }
 	def beforeInsert() {
 		dateCreated = new Date()
+		
+	}
+	def beforeDelete() {
+		posts.removeAll(posts)
 	}
 	
 }

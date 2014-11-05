@@ -10,4 +10,9 @@ class Regular extends User {
 		strikesNumber(blank:false,nullable:false,min:0,max:3)
 		startNumber(blank:false,nullable:false,min:0,max:5)
     }
+	
+	def beforeDelete() {
+		posts.removeAll(posts)
+	}
+	
 }
