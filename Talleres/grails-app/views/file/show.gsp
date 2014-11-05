@@ -39,15 +39,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${fileInstance?.size}">
-				<li class="fieldcontain">
-					<span id="size-label" class="property-label"><g:message code="file.size.label" default="Size" /></span>
-					
-						<span class="property-value" aria-labelledby="size-label"><g:fieldValue bean="${fileInstance}" field="size"/></span>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form url="[resource:fileInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

@@ -20,12 +20,3 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: fileInstance, field: 'size', 'error')} required">
-	<label for="size">
-		<g:message code="file.size.label" default="Size" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="size" type="number" max="10240" value="${fileInstance.size}" required=""/>
-
-</div>
-

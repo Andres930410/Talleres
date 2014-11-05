@@ -29,3 +29,30 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: postInstance, field: 'belognsForum', 'error')} required">
+	<label for="belognsForum">
+		<g:message code="post.belognsForum.label" default="Belogns Forum" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="belognsForum" name="belognsForum.id" from="${talleres.Forum.list()}" optionKey="id" required="" value="${postInstance?.belognsForum?.id}" class="many-to-one"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: postInstance, field: 'files', 'error')} ">
+	<label for="files">
+		<g:message code="post.files.label" default="Files" />
+		
+	</label>
+	<g:select name="files" from="${talleres.File.list()}" multiple="multiple" optionKey="id" size="5" value="${postInstance?.files*.id}" class="many-to-many"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: postInstance, field: 'owner', 'error')} required">
+	<label for="owner">
+		<g:message code="post.owner.label" default="Owner" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="owner" name="owner.id" from="${talleres.Regular.list()}" optionKey="id" required="" value="${postInstance?.owner?.id}" class="many-to-one"/>
+
+</div>
+

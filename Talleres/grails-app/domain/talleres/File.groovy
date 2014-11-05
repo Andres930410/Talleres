@@ -3,7 +3,6 @@ package talleres
 class File {
 	String fileType
 	byte [] content
-	int size
 	static belongsTo=[Post]
     static constraints = {
 		fileType(blank:false,nullable:false,validator:{val->
@@ -14,7 +13,7 @@ class File {
 			}
 			
 		})
-		content(blank:false,nullable:false)
-		size(blank:false,nullable:false,max:10*1024)
+		content(blank:false,nullable:false,min:0,max:10*1024)
+		
     }
 }

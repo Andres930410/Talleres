@@ -59,6 +59,35 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${postInstance?.belognsForum}">
+				<li class="fieldcontain">
+					<span id="belognsForum-label" class="property-label"><g:message code="post.belognsForum.label" default="Belogns Forum" /></span>
+					
+						<span class="property-value" aria-labelledby="belognsForum-label"><g:link controller="forum" action="show" id="${postInstance?.belognsForum?.id}">${postInstance?.belognsForum?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${postInstance?.files}">
+				<li class="fieldcontain">
+					<span id="files-label" class="property-label"><g:message code="post.files.label" default="Files" /></span>
+					
+						<g:each in="${postInstance.files}" var="f">
+						<span class="property-value" aria-labelledby="files-label"><g:link controller="file" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${postInstance?.owner}">
+				<li class="fieldcontain">
+					<span id="owner-label" class="property-label"><g:message code="post.owner.label" default="Owner" /></span>
+					
+						<span class="property-value" aria-labelledby="owner-label"><g:link controller="regular" action="show" id="${postInstance?.owner?.id}">${postInstance?.owner?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:postInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

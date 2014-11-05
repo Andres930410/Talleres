@@ -32,6 +32,10 @@
 					
 						<g:sortableColumn property="itsAllowed" title="${message(code: 'post.itsAllowed.label', default: 'Its Allowed')}" />
 					
+						<th><g:message code="post.belognsForum.label" default="Belogns Forum" /></th>
+					
+						<th><g:message code="post.owner.label" default="Owner" /></th>
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -45,6 +49,10 @@
 						<td><g:formatDate date="${postInstance.lastUpdate}" /></td>
 					
 						<td><g:formatBoolean boolean="${postInstance.itsAllowed}" /></td>
+					
+						<td>${fieldValue(bean: postInstance, field: "belognsForum")}</td>
+					
+						<td>${fieldValue(bean: postInstance, field: "owner")}</td>
 					
 					</tr>
 				</g:each>

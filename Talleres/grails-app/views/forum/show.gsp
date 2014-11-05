@@ -50,6 +50,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${forumInstance?.posts}">
+				<li class="fieldcontain">
+					<span id="posts-label" class="property-label"><g:message code="forum.posts.label" default="Posts" /></span>
+					
+						<g:each in="${forumInstance.posts}" var="p">
+						<span class="property-value" aria-labelledby="posts-label"><g:link controller="post" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:forumInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
