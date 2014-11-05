@@ -8,8 +8,21 @@ class Post {
 	
     static constraints = {
 		topic(blank:false,nullable:false,size:3..50)
-		dateCreated(blank:false,nullable:false)
-		lastUpdate(blank:false,nullable:false)
+		dateCreated(blank:false,nullable:false,validator: {
+			Date date = new Date()
+			if ( dateCreated.compareTo(date) > 0)
+				return true
+			else
+				return false
+		})
+		lastUpdate(blank:false,nullable:false,validator:
+		{
+			Date date = new Date()
+			if ( lastupdate.compareTo(date) > 0)
+				return true
+			else
+				return false
+		})
 		itsAllowed(blank:false,nullable:false)
     }
 }
